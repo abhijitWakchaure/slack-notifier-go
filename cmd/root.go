@@ -16,9 +16,11 @@ limitations under the License.
 package cmd
 
 import (
+	"fmt"
 	"log"
+	"os"
 
-	"github.com/abhijitWakchaure/slack-notifier/requests"
+	"github.com/abhijitWakchaure/slack-notifier-go/requests"
 	"github.com/spf13/cobra"
 )
 
@@ -26,12 +28,13 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "slack-notifier",
+	Use:   "slack-notifier-go",
 	Short: "Send mark-down message to desired group on slack via webhook",
 	Run: func(cmd *cobra.Command, args []string) {
 		msg, _ := cmd.Flags().GetString("message")
 		if msg == "" {
-			panic("Message cannot be empty")
+			fmt.Println("Message cannot be empty")
+			os.Exit(1)
 		}
 		requests.POST(msg)
 		log.Println("Message sent")

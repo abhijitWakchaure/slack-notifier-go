@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/abhijitWakchaure/slack-notifier/cmd"
+import "github.com/abhijitWakchaure/slack-notifier-go/cmd"
 
 func main() {
 	cmd.Execute()
