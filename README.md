@@ -18,6 +18,11 @@ SN_SLACK_WORKSPACE_ID | First ID in your webhook URL, starts with 'T'
 SN_SLACK_WEBHOOK_KEY | Second ID in your webhook URL, starts with 'B'
 SN_SLACK_WEBHOOK_SECRET | Last ID in your webhook URL
 
+## How to install
+
+```bash
+go install github.com/abhijitWakchaure/slack-notifier-go@latest
+```
 
 ## How to create your own slack app
 
