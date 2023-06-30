@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/abhijitWakchaure/slack-notifier-go/requests"
@@ -37,7 +36,7 @@ var rootCmd = &cobra.Command{
 			os.Exit(1)
 		}
 		requests.POST(msg)
-		log.Println("Message sent")
+		fmt.Println("Message sent")
 	},
 }
 

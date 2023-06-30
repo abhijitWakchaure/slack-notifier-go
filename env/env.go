@@ -1,7 +1,7 @@
 package env
 
 import (
-	"log"
+	"fmt"
 	"os"
 )
 
@@ -19,19 +19,19 @@ func Read(name string, defaultVal ...string) string {
 	// Lookup env override
 	v, ok := os.LookupEnv(name)
 	if ok {
-		log.Printf("Environment override detected for [%v]\n", name)
+		fmt.Printf("Environment override detected for [%v]\n", name)
 		return v
 	}
 	// Check user default
 	if len(defaultVal) > 0 {
-		log.Printf("Inline override detected for [%v]\n", name)
+		fmt.Printf("Inline override detected for [%v]\n", name)
 		return defaultVal[0]
 	}
 	v, ok = defaults[name]
 	if !ok {
-		log.Fatalf("Failed to lookup value for env var: %s\n", name)
-		return ""
+		fmt.Printf("Failed to lookup value for env var: %s\n", name)
+		os.Exit(1)
 	}
-	log.Printf("Using default value for [%v]\n", name)
+	fmt.Printf("Using default value for [%v]\n", name)
 	return v
 }
